@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('pages', [PageController::class, 'index'])->name('sayfa-index');
+
+Route::get('pages/{page:slug}', [PageController::class, 'showOptional'])->name('sayfa-goster');
+
+// Route::get('pages/{slug}', [PageController::class, 'show'])->name('sayfa-goster');
